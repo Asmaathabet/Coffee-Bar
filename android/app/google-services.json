@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "512457034426",
+    "firebase_url": "https://coffee-bar-80442.firebaseio.com",
+    "project_id": "coffee-bar-80442",
+    "storage_bucket": "coffee-bar-80442.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512457034426:android:150ca6ca321ad7025b1083",
+        "android_client_info": {
+          "package_name": "com.example.coffee_bar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512457034426-aili883oe2frhf1lr13jfajr64jnk5gn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAlu3Edx_Lj4S0QN-AH1XOp92b2eknJ9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512457034426-aili883oe2frhf1lr13jfajr64jnk5gn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
