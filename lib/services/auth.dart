@@ -9,8 +9,9 @@ class AuthService {
     try {
       // AuthResult === UserCredential [Renamed]
       UserCredential result = await _auth.signInAnonymously();
-      // ignore: deprecated_member_use
-      FirebaseUser user = result.user;
+      // ignore: deprecated_member_use // instead of FirebaseUser => choose User
+      User user = result.user;
+
       return user;
     } catch (e) {
       print(e.toString());
