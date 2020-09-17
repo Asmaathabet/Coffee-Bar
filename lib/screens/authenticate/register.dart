@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:coffee_bar/services/auth.dart';
 
 class Register extends StatefulWidget {
+  final Function toggelView;
+  Register({this.toggelView});
+
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -20,6 +23,14 @@ class _RegisterState extends State<Register> {
         backgroundColor: Colors.brown[400],
         elevation: 0,
         title: Text('Sign up to Cofee bar'),
+        actions: <Widget>[
+          FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('Sign In'),
+              onPressed: () {
+                widget.toggelView();
+              })
+        ],
       ),
       body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
@@ -41,7 +52,7 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                color: Colors.pink[400],
+                color: Colors.red[300],
                 child: Text(
                   'Register',
                   style: TextStyle(color: Colors.white),

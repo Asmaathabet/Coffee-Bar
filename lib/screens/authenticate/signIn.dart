@@ -2,6 +2,9 @@ import 'package:coffee_bar/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
+  final Function toggelView;
+  SignIn({this.toggelView});
+
   @override
   _SignInState createState() => _SignInState();
 }
@@ -20,6 +23,14 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Colors.brown[400],
         elevation: 0,
         title: Text('Sign in to Cofee bar'),
+        actions: <Widget>[
+          FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('Register'),
+              onPressed: () {
+                widget.toggelView();
+              })
+        ],
       ),
       body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
@@ -41,7 +52,7 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                color: Colors.pink[400],
+                color: Colors.red[300],
                 child: Text(
                   'Sign in',
                   style: TextStyle(color: Colors.white),
