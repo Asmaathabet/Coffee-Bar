@@ -15,6 +15,7 @@ class _RegisterState extends State<Register> {
 
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class _RegisterState extends State<Register> {
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
           child: Form(
               key: _formKey,
-              child: Column(
+              child: ListView(
                 children: <Widget>[
                   SizedBox(height: 20.0),
                   TextFormField(
@@ -64,11 +65,33 @@ class _RegisterState extends State<Register> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () async {
-                      if (_formKey.currentState.validate()) {
-                        print(email);
-                        print(password);
+                      try {
+                        if (_formKey.currentState.validate()) {
+                          dynamic result = await _auth
+                              .registerWithEmailAndPassword(email, password);
+
+                          Scaffold.of(context).showSnackBar(
+                              SnackBar(content: Text('Processing Data')));
+
+                          // dynamic result;
+                          if (result == null) {
+                            error = 'please add a valid email';
+                            setState(() {
+                              error = 'please provide a vaild email';
+                            });
+                          }
+                        }
+                      } catch (e) {
+                        print('errrrrrrrrrrrrrrrrrrrrrrrr');
                       }
+                      print(email);
+                      print(password);
                     },
+                  ),
+                  SizedBox(height: 3.0),
+                  Text(
+                    error,
+                    style: TextStyle(color: Colors.red, fontSize: 14.0),
                   )
                 ],
               ))),

@@ -1,5 +1,6 @@
 import 'package:coffee_bar/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 
 class AuthService {
   // (_) means that this property has a private meaning and we can use it only in this file
@@ -32,6 +33,22 @@ class AuthService {
   // sign in with email and password
 
   // register with email and password
+
+  Future registerWithEmailAndPassword(String email, String password) async {
+    try {
+      print('herrrrrrrrrrre');
+      print(email);
+      print(password);
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      print(result);
+      User user = result.user;
+      return _userFromFirebaseUser(user);
+    } on PlatformException catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 
   // logout
   Future logout() async {
